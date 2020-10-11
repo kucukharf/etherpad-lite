@@ -8,7 +8,7 @@ let driver = await new Builder().withCapabilities({
             'browserVersion': 'latest',
             'goog:chromeOptions' : { 'w3c' : true },
             'sauce:options': {
-                'username': process.env.SAUCE_USER,
+                'username': process.env.SAUCE_USERNAME,
                 'accessKey': process.env.SAUCE_ACCESS_KEY,
                 'build': process.env.GIT_HASH,
                 'name': 'test',
