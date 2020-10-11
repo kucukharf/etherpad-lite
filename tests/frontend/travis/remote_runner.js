@@ -16,8 +16,7 @@ let driver = await new Builder().withCapabilities({
                 such as build info, tags for reporting, and timeout durations.
                 */
                 'maxDuration': 100,
-                'idleTimeout': 1000,
-                'tags': tags
+                'idleTimeout': 1000
             }
         }).usingServer("https://ondemand.saucelabs.com/wd/hub").build();
 
