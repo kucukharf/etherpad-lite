@@ -1,6 +1,7 @@
 var srcFolder = "../../../src/node_modules/";
 var wd = require(srcFolder + "selenium-webdriver");
 
+(async function(){
 let driver = wd.Builder().withCapabilities({
             'browserName': 'chrome',
             'platformName': 'Windows 10',
@@ -27,3 +28,4 @@ await driver.getSession().then(function (sessionid) {
 let baseUrl = "http://localhost:9001/tests/frontend";
 await driver.get(baseUrl);
 
+})()
