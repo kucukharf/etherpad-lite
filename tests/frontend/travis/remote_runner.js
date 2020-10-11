@@ -26,5 +26,6 @@ await driver.getSession().then(function (sessionid) {
 });
 let baseUrl = "http://localhost:9001/tests/frontend";
 await driver.get(baseUrl);
+driver.sleep(100000);
 
 })()
