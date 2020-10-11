@@ -1,8 +1,8 @@
 var srcFolder = "../../../src/node_modules/";
-var wd = require(srcFolder + "selenium-webdriver");
+const { Builder }= require(srcFolder + "selenium-webdriver");
 
 (async function(){
-let driver = wd.Builder().withCapabilities({
+let driver = await new Builder().withCapabilities({
             'browserName': 'chrome',
             'platformName': 'Windows 10',
             'browserVersion': 'latest',
