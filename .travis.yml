@@ -8,6 +8,11 @@ services:
 
 cache: false
 
+env:
+  global:
+  - secure: gQdsD91DHpaDXDyDzrxWUaYDZxzZC3ojkBWX6nbLbOgADSWhzHUqMShDQXGlT80G4SikOhtSGlS2aOtsRcPTOGRtwjrOkg266JY+Fa37yO6I7/xios8VZp56Tu6ADNuItLptP0nH/DY3rPEIfiztcd3h6jLZ0RJlGY7lkHpM3xs=
+  - secure: HxLMaehWXVYuhkJ54SqR+9czD6i8RtDhfx7WM8yTrRE2JtThqECfL+fjqrNMkG25zZpDISwCm082qb3Z5uE3tpARi9eizOLAuLbDwQeJNfV1vW7RBj3mZMhgfuwGMH5VkQsI1MiSPf3AIHPQdQSfkBTC5KiYzYsMay6VrKwEswA=
+
 jobs:
   include:
     # we can only frontend tests from the ether/ organization and not from forks.
