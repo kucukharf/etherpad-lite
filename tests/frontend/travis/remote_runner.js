@@ -11,6 +11,7 @@ let driver = await new Builder().withCapabilities({
                 'username': process.env.SAUCE_USERNAME,
                 'accessKey': process.env.SAUCE_ACCESS_KEY,
                 'build': process.env.GIT_HASH,
+                'extendedDebugging': true,
                 'name': 'test',
                 /* As a best practice, set important test metadata and execution options
                 such as build info, tags for reporting, and timeout durations.
@@ -26,6 +27,6 @@ await driver.getSession().then(function (sessionid) {
 });
 let baseUrl = "http://localhost:9001/tests/frontend";
 await driver.get(baseUrl);
-driver.sleep(100000);
+await driver.sleep(100000);
 
 })()
