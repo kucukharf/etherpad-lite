@@ -38,24 +38,19 @@ async function runTest(){
 
   driver.get(baseUrl).then(function(){
     getStatusInterval = setInterval(function(){
-      driver.eval("$('#console').text()", function(err, consoleText){
-        if(!consoleText || err){
-          return;
-        }
-        knownConsoleText = consoleText;
+      let knownConsoleText = $('#console').text();
 
-        if(knownConsoleText.indexOf("FINISHED") > 0){
-          let match = knownConsoleText.match(/FINISHED.*([0-9]+) tests passed, ([0-9]+) tests failed/);
-          // finished without failures
-          if (match[2] && match[2] == '0'){
-            stopSauce(true);
+      if(knownConsoleText.indexOf("FINISHED") > 0){
+        let match = knownConsoleText.match(/FINISHED.*([0-9]+) tests passed, ([0-9]+) tests failed/);
+        // finished without failures
+        if (match[2] && match[2] == '0'){
+          stopSauce(true);
 
-          // finished but some tests did not return or some tests failed
-          } else {
-            stopSauce(false);
-          }
+        // finished but some tests did not return or some tests failed
+        } else {
+          stopSauce(false);
         }
-      });
+      }
     }, 5000);
 
     /**
@@ -66,7 +61,8 @@ async function runTest(){
     timeout = setTimeout(function(){
       stopSauce(false,true);
     }, 570000); // travis timeout is 10 minutes, set this to a slightly lower value
-  });
+    return
+  }).catch(function(){})
 }
 
 //tear down the test excecution
